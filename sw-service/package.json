@@ -1,0 +1,29 @@
+{
+  "name": "sw-service",
+  "version": "1.0.0",
+  "description": "sw backend app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "lint": "eslint --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jefry04/sweet-water-app/tree/main/sw-service"
+  },
+  "author": "r-vasquez",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1"
+  }
+}
