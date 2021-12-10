@@ -1,0 +1,132 @@
+@import "./mixins/queries";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.login-container {
+  font-family: "Roboto", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .login-form__title {
+    text-align: center;
+
+    h2 {
+      color: #535353;
+      margin-bottom: 5px;
+      font-size: 36px;
+    }
+  }
+
+  .login-form {
+    p {
+      font-size: 20px;
+      margin-bottom: 1px;
+    }
+
+    span {
+      color: red;
+      display: none;
+    }
+    @include tablet() {
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        margin-top: 55px;
+        margin-right: 70px;
+      }
+    }
+
+    @include desktop() {
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        margin-top: 55px;
+        margin-right: 70px;
+      }
+    }
+
+    &__text {
+      border-radius: 4px;
+      width: 241px;
+      height: 35px;
+      left: 67px;
+      top: 287px;
+      margin: 8px 0;
+      box-sizing: border-box;
+
+      @include tablet()  {
+        border-radius: 4px;
+        width: 320px;
+        height: 35px;
+        margin-left: 392px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+
+      @include desktop()  {
+        width: 350px;
+        height: 35px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+    }
+
+    input:invalid {
+      width: 241px;
+      height: 35px;
+      left: 67px;
+      top: 287px;
+      margin: 8px 0;
+      border: 1px solid #f90000;
+      box-sizing: border-box;
+      border-radius: 4px;
+
+      @include tablet()  {
+        border-radius: 4px;
+        width: 320px;
+        height: 45px;
+        margin-left: 392px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #f90000;
+      }
+
+      @include desktop()  {
+        width: 350px;
+        height: 35px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+    }
+
+    input:invalid ~ span {
+      display: block;
+    }
+
+    button {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 23px;
+      margin-top: 55px;
+      margin-bottom: 15px;
+      margin-left: 60px;
+    }
+  }
+}
