@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const url = "api/login"
 
 export const authUser = async (username, password) => {
