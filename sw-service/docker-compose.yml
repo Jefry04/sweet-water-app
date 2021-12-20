@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  database:
+    image: 'mongo'
+    container_name: 'sw-db-mongo'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: aguadulce
+      MONGO_INITDB_DATABASE: sw-database
+    volumes:
+      - ./src/config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./src/config/dbVolume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
