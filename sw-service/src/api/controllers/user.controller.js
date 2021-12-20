@@ -15,7 +15,7 @@ const registerUser = async (req, res) => {
 
     const savedUser = await UserService.saveUser({ username, password, firstName, lastName });
 
-    return res.json({
+    return res.status(201).json({
       success: true,
       username: savedUser.username,
     });
