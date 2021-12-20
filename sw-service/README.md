@@ -33,6 +33,13 @@ npm run dev
 ```
 it will start in port 3001.
 
+### Documentation
+
+You can access the API documentation in:
+```
+http://localhost:3001/api-docs
+```
+
 ### Service Health Check
 
 Call `/api/status` to verify current status of the service
