@@ -1,0 +1,37 @@
+.signup-form-container {
+  color: $primary-color;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    margin-bottom: 22px;
+  }
+}
+
+.signup-form {
+  height: 70vh;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .main-label {
+    margin: 12px 0;
+    pointer-events:none;
+  }
+
+  &__roles-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__role {
+    margin-bottom: 2px;
+  }
+
+  &__button {
+    margin-top: 40px;
+  }
+}

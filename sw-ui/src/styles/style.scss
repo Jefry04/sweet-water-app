@@ -1,142 +1,46 @@
 @import "./mixins/queries";
-@import "./variables/colors";
-@import "./variables/font";
+@import "./variables/index";
+@import "./components/index";
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
 html,
 body {
   margin: 0;
   height: 100%;
+  font-family: $primary-font;
 }
 
-.login-container {
-  font-family: var(--primary-font);
-  color: var(--primary-color);
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// Css Reset
+*, *:before, *:after{
+  box-sizing: border-box;
+}
 
-  .login-form__title {
-    text-align: center;
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
 
-    h2 {
-      color: var(--primary-color);
-      margin-bottom: 5px;
-      font-size: 36px;
-    }
-  }
+body{
+  line-height: 1;
+}
 
-  .login-form {
-    p {
-      font-size: 20px;
-      margin-bottom: 1px;
-    }
+ol, ul{
+  list-style: none;
+}
 
-    span {
-      color: var(--error-color);
-      display: none;
-    }
-    @include tablet() {
-      width: 100%;
-      display: flex;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      flex-direction: column;
-      align-items: center;
+blockquote, q{
+  quotes: none;
+}
 
-      button {
-        margin-top: 55px;
-        margin-right: 70px;
-      }
-    }
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
-    @include desktop() {
-      width: 100%;
-      display: flex;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      flex-direction: column;
-      align-items: center;
-
-      button {
-        margin-top: 55px;
-        margin-right: 70px;
-      }
-    }
-
-    &__text {
-      border-radius: 4px;
-      width: 241px;
-      height: 35px;
-      left: 67px;
-      top: 287px;
-      margin: 8px 0;
-      box-sizing: border-box;
-
-      @include tablet()  {
-        border-radius: 4px;
-        width: 320px;
-        height: 35px;
-        margin-left: 392px;
-        margin: 8px 0;
-        box-sizing: border-box;
-      }
-
-      @include desktop()  {
-        width: 350px;
-        height: 35px;
-        margin: 8px 0;
-        box-sizing: border-box;
-      }
-    }
-
-    input:invalid[focused="true"] {
-      width: 241px;
-      height: 35px;
-      left: 67px;
-      top: 287px;
-      margin: 8px 0;
-      border: 1px solid var(--error-color);
-      box-sizing: border-box;
-      border-radius: 4px;
-
-      @include tablet()  {
-        border-radius: 4px;
-        width: 320px;
-        height: 45px;
-        margin-left: 392px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 1px solid var(--error-color);
-      }
-
-      @include desktop()  {
-        width: 350px;
-        height: 35px;
-        margin: 8px 0;
-        box-sizing: border-box;
-      }
-    }
-
-    span[focused="true"]  {
-      display: block;
-      padding-top: 25px;
-      text-align: center;
-    }
-
-    button {
-      color: var(--secondary-color);
-      font-family: var(--primary-font);
-      font-style: normal;
-      font-weight: 300;
-      font-size: 20px;
-      line-height: 23px;
-      margin-top: 35px;
-      margin-bottom: 15px;
-      margin-left: 60px;
-      background:  var(--button-color);
-      border-radius: 3px;
-    }
-  }
+input{
+  -webkit-appearance: none;
 }
