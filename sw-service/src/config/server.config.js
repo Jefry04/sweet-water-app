@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const passport = require('passport');
 const session = require('./session.config');
 require('./passport.config');
@@ -15,5 +16,7 @@ app.use(session());
 // passport configuration
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(cors());
 
 module.exports = app;

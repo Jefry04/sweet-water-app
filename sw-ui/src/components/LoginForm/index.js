@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [isAuthError, setIsAuthError] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
   const [focused, setFocused] = useState(false);
- 
+
   const router = useRouter();
   const { username, password } = value;
 
@@ -28,7 +28,7 @@ const LoginForm = () => {
     }
   }, [value]);
 
-  const handleFocus =() =>{
+  const handleFocus = () => {
     setFocused(true);
   };
 
@@ -42,11 +42,15 @@ const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { username, password } = value;
-    if (username === "admin" && password === "admin")
-      //    authUser(username, password); //enviar peticion al back
-      setIsAuthenticate(true)
-      else {setIsAuthError(true)};
-        };
+    authUser(username, password).then((data) => {
+      console.log(data);
+      if (data.success === true) {
+        setIsAuthenticate(true);
+      } else {
+        setIsAuthError(true);
+      }
+    });
+  };
 
   return (
     <LoginFormView
