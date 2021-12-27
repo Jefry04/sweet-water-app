@@ -1,0 +1,172 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Sweet Water Service",
+    "description": "API to handle Sweet Water API backend requirements",
+    "version": "1.0"
+  },
+  "host": "localhost:3001",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "tags": [
+          "Authentication Controller"
+        ],
+        "description": "Endpoint to CREATE an User",
+        "parameters": [
+          {
+            "name": "User",
+            "description": "The user to create",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "username",
+                "password",
+                "firstName",
+                "lastName"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK: User created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "username": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description": "Error: duplicate username",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "errMsg": {
+                  "type": "string",
+                  "default": "USER_ALREADY_CREATED"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/session": {
+      "post": {
+        "tags": [
+          "Authentication Controller"
+        ],
+        "description": "Endpoint to LOGIN an user",
+        "parameters": [
+          {
+            "name": "User",
+            "description": "The user to log in",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "username",
+                "password"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK: User Logged IN",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "username": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error in authentication process",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "errMsg": {
+                  "type": "string",
+                  "default": "INVALID_CREDENTIALS"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Controller"
+        ],
+        "description": "Endpoint to LOGOUT an user, based on the session cookie",
+        "responses": {
+          "200": {
+            "description": "OK: User Logged OUT",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
