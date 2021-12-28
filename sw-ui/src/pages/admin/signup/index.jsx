@@ -1,43 +1,51 @@
-import React, { useState } from 'react';
-import SignupView from './SignupView';
+import React, from 'react';
+import SignupForm from './SignupForm';
+import { useForm } from 'hooks/useForm';
 
 function Signup() {
-  const [formValue, setFormValue] = useState({})
-
-  const handleInputChange = (event) => {
-    setFormValue({
-      ...formValue,
-      [event.target.name]: event.target.value,
-    });
-  }
+  const [formValue, handleInputChange, setFormValue] = useForm({
+    username: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    roles: []
+  });
 
   const handleCheckboxRoles = (event) => {
-    const currentRoles = formValue.roles || [];
-    if(event.target.checked) {
-      currentRoles.push(event.target.name)
+    const currentRoles = [...formValue.roles];
+    if (event.target.checked) {
+      currentRoles.push(event.target.name);
       setFormValue({
         ...formValue,
-        roles: currentRoles
-      })
+        roles: currentRoles,
+      });
     } else {
-      const toDelete = currentRoles.indexOf(event.target.name)
+      const toDelete = currentRoles.indexOf(event.target.name);
       if (toDelete > -1) {
         currentRoles.splice(toDelete, 1);
       }
       setFormValue({
         ...formValue,
-        roles: currentRoles
-      })
+        roles: currentRoles,
+      });
     }
-  }
+  };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // Aqui va el POST
-    console.log(formValue)
-  }
+    console.log(formValue);
+  };
+
+  const viewProps = {
+    formValue,
+    handleInputChange,
+    handleFormSubmit,
+    handleCheckboxRoles,
+  };
+
   return (
-    <SignupView handleInputChange={handleInputChange} handleFormSubmit={handleFormSubmit} handleCheckboxRoles={handleCheckboxRoles}/>
+    <SignupForm {...viewProps} />
   );
 }
 
