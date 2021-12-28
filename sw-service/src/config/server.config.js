@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const passport = require('passport');
 const swaggerUi = require('swagger-ui-express');
 const session = require('./session.config');
@@ -18,6 +19,7 @@ app.use(session());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // Swagger (docs) configuration
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

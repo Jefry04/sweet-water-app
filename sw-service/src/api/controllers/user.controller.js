@@ -54,7 +54,24 @@ const logoutUser = (req, res) => {
   });
 };
 
+const getUser = (req, res) => {
+  if (!req.user) {
+    res.json({
+      success: true,
+      user: null,
+    });
+  } else {
+    res.json({
+      success: true,
+      user: {
+        username: req.user.username,
+      },
+    });
+  }
+};
+
 module.exports = {
+  getUser,
   loginUser,
   logoutUser,
   registerUser,
