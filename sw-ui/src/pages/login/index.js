@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import LoginFormView from './LoginFormView';
+import React, { useState, useEffect, useContext } from "react";
+import { authUser } from "../../lib/auth";
+import LoginFormView from "./LoginFormView";
+import { useRouter } from "next/router";
+import { UserContext } from "../../context/UserContext";
 
-
-const Login = () => {
-  const [value, setValue] = useState({ username: '', password: '' });
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const LoginForm = () => {
+  const [value, setValue] = useState({ username: "", password: "" });
   const [isAuthError, setIsAuthError] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
   const [focused, setFocused] = useState(false);
-
+  const { setUser } = useContext(UserContext);
   const router = useRouter();
   const { username, password } = value;
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push('/');
-    }
-  }, [isAuthenticated]);
 
   useEffect(() => {
     if (username.length > 0 && password.length > 0) {
@@ -42,26 +36,26 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { username, password } = value;
-    if (username === 'admin' && password === 'admin')
-      //    authUser(username, password); //enviar peticion al back
-      setIsAuthenticated(true);
-    else {
-      setIsAuthError(true);
-    }
+    authUser(username, password).then((data) => {
+      if (data.success === true) {
+        setUser({ username: data.username });
+        router.push("/");
+      } else {
+        setIsAuthError(true);
+      }
+    });
   };
 
   return (
-    <div className='login-page'>
-      <LoginFormView
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        isEmpty={isEmpty}
-        isAuthError={isAuthError}
-        focused={focused}
-        handleFocus={handleFocus}
-      />
-    </div>
+    <LoginFormView
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      isEmpty={isEmpty}
+      isAuthError={isAuthError}
+      focused={focused}
+      handleFocus={handleFocus}
+    />
   );
 };
 
-export default Login;
+export default LoginForm;

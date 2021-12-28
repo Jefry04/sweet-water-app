@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const UserController = require('../controllers/user.controller');
+const { isAuth } = require('../middlewares/auth.middleware');
 
 const router = Router();
 
@@ -13,7 +14,7 @@ router.post('/', UserController.registerUser);
    Retrieve User Info:
    GET api/user/session
 */
-// router.get('/session', UserController.getUser);
+router.get('/session', isAuth, UserController.getUser);
 
 /*
    Login:

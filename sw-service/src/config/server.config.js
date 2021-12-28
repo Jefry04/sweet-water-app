@@ -19,7 +19,7 @@ app.use(session());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // Swagger (docs) configuration
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
