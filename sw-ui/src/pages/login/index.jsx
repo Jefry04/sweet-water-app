@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { authUser } from "../../lib/auth";
-import LoginFormView from "./LoginFormView";
 import { useRouter } from "next/router";
-import { UserContext } from "../../context/UserContext";
+import { authUser } from "lib/auth";
+import { UserContext } from "context/UserContext";
+import LoginFormView from "./LoginFormView";
 
 const LoginForm = () => {
   const [value, setValue] = useState({ username: "", password: "" });
