@@ -3,7 +3,7 @@ import SignupForm from "./SignupForm";
 import { useForm } from "hooks/useForm";
 import { register } from "lib/auth";
 import { useFormValidation } from "hooks/useFormValidation";
-import { getErrorMessage } from 'lib/getErrorMessage';
+import { getErrorMessage } from "lib/getErrorMessage";
 
 function Signup() {
   const [isSignupError, setIsSignupError] = useState(false);
@@ -29,7 +29,7 @@ function Signup() {
     } else {
       setValidObj({ roles: false });
     }
-  }, [formValue.roles]);
+  }, [formValue.roles, setValidObj]);
 
   const handleCheckboxRoles = (event) => {
     const currentRoles = [...formValue.roles];
@@ -61,7 +61,7 @@ function Signup() {
           resetFormValue();
         } else {
           setIsSignupError(true);
-          setErrorMessage(getErrorMessage(res.errMsg))
+          setErrorMessage(getErrorMessage(res.errMsg));
         }
       })
       .catch(console.error);

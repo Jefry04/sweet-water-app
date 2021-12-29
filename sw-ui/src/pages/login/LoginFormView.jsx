@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import InputValidator from '../../components/InputValidator';
-import { notEmptyValidator } from '../../lib/validations';
+import InputValidator from "../../components/InputValidator";
+import { notEmptyValidator } from "../../lib/validations";
 
 const LoginFormView = ({ handleChange, handleSubmit, isValid, isAuthError, formValue, errorMessage, cbValid }) => {
   return (
@@ -41,7 +41,7 @@ const LoginFormView = ({ handleChange, handleSubmit, isValid, isAuthError, formV
         </button>
       </form>
       <div className="login-image">
-        <Image src={logo} width={241} height={240} />
+        <Image src={logo} width={241} height={240} alt="sweet water logo" />
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
+import LoginFormView from "./LoginFormView";
 import { UserContext } from "context/UserContext";
 import { useForm } from "hooks/useForm";
 import { useFormValidation } from "hooks/useFormValidation";
 import { authUser } from "lib/auth";
 import { getErrorMessage } from "lib/getErrorMessage";
-import LoginFormView from "./LoginFormView";
 
 const LoginForm = () => {
   const [isAuthError, setIsAuthError] = useState(false);
@@ -36,7 +36,7 @@ const LoginForm = () => {
     isAuthError,
     errorMessage,
     isValid,
-    cbValid: setValidObj
+    cbValid: setValidObj,
   };
   return <LoginFormView {...loginViewProps} />;
 };

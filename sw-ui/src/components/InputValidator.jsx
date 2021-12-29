@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import useDidMountEffect from '../hooks/useDidMountEffect';
+import React, { useState } from "react";
+import useDidMountEffect from "../hooks/useDidMountEffect";
 
 function InputValidator({
   name,
@@ -19,10 +19,10 @@ function InputValidator({
   const inputClass = `${className} ${error || externalError ? "input--error" : ""}`;
 
   useDidMountEffect(() => {
-    if(validateOnChange) {
-      handleValidation()
+    if (validateOnChange) {
+      handleValidation();
     }
-  }, [value])
+  }, [value]);
 
   const handleValidation = () => {
     const { isValid, error = "" } = validator(value);
