@@ -22,6 +22,13 @@
     pointer-events:none;
   }
 
+  &--error {
+    color: $error-color;
+    margin-top: 18px;
+    font-size: 100%;
+    text-align: center;
+  }
+
   &__roles-container {
     display: flex;
     flex-direction: column;

@@ -1,15 +1,35 @@
-import React, from 'react';
-import SignupForm from './SignupForm';
-import { useForm } from 'hooks/useForm';
+import React, { useEffect, useState } from "react";
+import SignupForm from "./SignupForm";
+import { useForm } from "hooks/useForm";
+import { register } from "lib/auth";
+import { useFormValidation } from "hooks/useFormValidation";
+import { getErrorMessage } from 'lib/getErrorMessage';
 
 function Signup() {
-  const [formValue, handleInputChange, setFormValue] = useForm({
-    username: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-    roles: []
+  const [isSignupError, setIsSignupError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formValue, handleInputChange, setFormValue, resetFormValue] = useForm({
+    username: "",
+    firstName: "",
+    lastName: "",
+    password: "",
+    roles: [],
   });
+  const { setValidObj, isValid, resetFormValidation } = useFormValidation({
+    username: false,
+    firstName: false,
+    lastName: false,
+    password: false,
+    roles: false,
+  });
+
+  useEffect(() => {
+    if (formValue.roles.length > 0) {
+      setValidObj({ roles: true });
+    } else {
+      setValidObj({ roles: false });
+    }
+  }, [formValue.roles]);
 
   const handleCheckboxRoles = (event) => {
     const currentRoles = [...formValue.roles];
@@ -33,20 +53,32 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // Aqui va el POST
-    console.log(formValue);
+    register(formValue)
+      .then((res) => {
+        if (res.success) {
+          setIsSignupError(false);
+          resetFormValidation();
+          resetFormValue();
+        } else {
+          setIsSignupError(true);
+          setErrorMessage(getErrorMessage(res.errMsg))
+        }
+      })
+      .catch(console.error);
   };
 
   const viewProps = {
+    errorMessage,
     formValue,
-    handleInputChange,
-    handleFormSubmit,
     handleCheckboxRoles,
+    handleFormSubmit,
+    handleInputChange,
+    isValid,
+    signupError: isSignupError,
+    validCb: setValidObj,
   };
 
-  return (
-    <SignupForm {...viewProps} />
-  );
+  return <SignupForm {...viewProps} />;
 }
 
 export default Signup;
