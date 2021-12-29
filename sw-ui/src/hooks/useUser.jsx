@@ -12,7 +12,7 @@ const fetcher = (url) =>
       return { user: data?.user || null };
     });
 
-export function useUser({ redirectTo, redirectIfFound } = {}) {
+export function useUser({ redirectTo } = {}) {
   const { user: userCtx } = useContext(UserContext);
 
   if (userCtx) {

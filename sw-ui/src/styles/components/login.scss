@@ -66,6 +66,8 @@
 
     &__item{
       margin-top: 20px;
+      display: flex;
+      flex-direction: column;
     }
     &__text {
       border-radius: 4px;
@@ -90,7 +92,7 @@
       border: 1px solid $error-color;
     }
 
-    span[focused="true"] {
+    span.login-form--error {
       display: block;
       padding-top: 25px;
       text-align: center;

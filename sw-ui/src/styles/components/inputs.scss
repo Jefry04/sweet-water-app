@@ -9,10 +9,19 @@
   &:hover {
     border: 1px solid #275EFE;
   }
+  &--error {
+    border: 1px solid $error-color;
+  }
+  &_error-msg {
+    margin-top: 6px;
+    font-size: 85%;
+    color: $error-color;
+  }
 }
 
 button:disabled {
   background: grey !important;
+  cursor: auto;
 }
 
 .button {

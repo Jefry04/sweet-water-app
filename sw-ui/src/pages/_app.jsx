@@ -1,10 +1,10 @@
 import { UserProvider } from "../context/UserContext";
-import "../styles/style.scss"
+import "../styles/style.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
-      <Component {...pageProps} />{" "}
+      <Component {...pageProps} />
     </UserProvider>
   );
 }

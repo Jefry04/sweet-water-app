@@ -1,14 +1,12 @@
 import axios from "axios";
 
-const url = "http://localhost:3001/api/user/session";
+const url = "http://localhost:3001/api/";
+
+const config = { withCredentials: true };
 
 export const authUser = async (username, password) => {
   try {
-    const response = await axios.post(
-      url,
-      { username, password },
-      { withCredentials: true }
-    );
+    const response = await axios.post(`${url}user/session`, { username, password }, config);
     return response.data;
   } catch (error) {
     return error?.response?.data || { success: false };
@@ -17,9 +15,17 @@ export const authUser = async (username, password) => {
 
 export const logout = async () => {
   try {
-    const response = await axios.delete(url, { withCredentials: true });
-    return response;
+    return await axios.delete(`${url}user/session`, config);
   } catch (error) {
     return error;
+  }
+};
+
+export const register = async (body) => {
+  try {
+    const response = await axios.post(`${url}user`, body, config);
+    return response.data;
+  } catch (error) {
+    return error?.response?.data || { success: false };
   }
 };
