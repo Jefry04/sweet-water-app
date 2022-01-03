@@ -26,6 +26,6 @@ router.post('/session', UserController.loginUser);
    Logout
    DELETE api/user/session
 */
-router.delete('/session', UserController.logoutUser);
+router.delete('/session', isAuth, UserController.logoutUser);
 
 module.exports = router;
