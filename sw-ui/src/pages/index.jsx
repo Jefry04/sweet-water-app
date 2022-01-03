@@ -19,8 +19,13 @@ function Home() {
       {user && (
         <>
           <h2>FORMULARIOS MANTENIMIENTO</h2>
-          <Link href="/forms">Formulario 1</Link>
-          <h3>{user?.username}</h3>
+          <Link href="#">Formulario Registro</Link>
+          <p>{"Username: " + user?.username}</p>
+          <p>{"First Name: " + user?.firstName}</p>
+          <p>{"Roles: "}</p>
+          {user?.roles.map((rol) => (
+            <li key={rol}>{rol}</li>
+          ))}
           <button onClick={handleLogout}>Logout</button>
         </>
       )}

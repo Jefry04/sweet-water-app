@@ -2,30 +2,32 @@
 // a callback function that changes the state depending on the
 // validation logic implemented elsewhere.
 // It will return isValid when all the object properties are true.
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from "react";
 
 export const useFormValidation = (initialValue = {}) => {
-  const [isValid, setIsValid] = useState(false)
+  const [isValid, setIsValid] = useState(false);
   const [validForm, setValidForm] = useState(initialValue);
 
-  const setValidObj = (validObj) => {
-    setValidForm({
-      ...validForm,
-      ...validObj
-    })
-  }
-
   useEffect(() => {
-    setIsValid(Object.values(validForm).every(value => value === true))
-  }, [validForm])
+    setIsValid(Object.values(validForm).every((value) => value === true));
+  }, [validForm]);
+
+  const setValidObj = useCallback((validObj) => {
+    setValidForm((validForm) => {
+      return {
+        ...validForm,
+        ...validObj,
+      };
+    });
+  }, []);
 
   const resetFormValidation = () => {
-    setValidForm(initialValue)
-  }
+    setValidForm(initialValue);
+  };
 
   return {
     isValid,
     resetFormValidation,
-    setValidObj
-  }
-}
+    setValidObj,
+  };
+};
