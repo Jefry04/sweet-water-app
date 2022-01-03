@@ -3,7 +3,6 @@ const session = require('express-session');
 
 const connection = require('./db.config');
 
-// TODO: Catch connection errors to DB
 const store = new MongoStore({
   client: connection.getClient(),
 });

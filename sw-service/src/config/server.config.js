@@ -5,6 +5,7 @@ const swaggerUi = require('swagger-ui-express');
 const session = require('./session.config');
 const swaggerDocument = require('../../docs/swagger.json');
 require('./passport.config');
+const { errorMiddleware } = require('../api/middlewares/error.middleware');
 
 const app = express();
 
@@ -23,4 +24,5 @@ app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // Swagger (docs) configuration
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.use(errorMiddleware);
 module.exports = app;
