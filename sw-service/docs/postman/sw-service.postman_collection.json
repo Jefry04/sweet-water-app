@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\":\"eariass\",\n    \"password\":\"prueba_12*_long\",\n    \"firstName\": \"Estefania\",\n    \"lastName\": \"Arias\"\n}",
+					"raw": "{\n    \"username\":\"jefry\",\n    \"password\":\"Test1234\",\n    \"firstName\": \"Jefferson\",\n    \"lastName\": \"Vasquez\",\n    \"roles\": [\"ADMIN\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"rvasquez\",\n    \"password\": \"prueba_12*_longa\"\n}",
+					"raw": "{\n    \"username\": \"jefry\",\n    \"password\": \"Test1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -9,7 +9,7 @@ const getUserByUsername = async (username) => {
   }
 };
 
-const saveUser = async ({ username, password, firstName, lastName }) => {
+const saveUser = async ({ username, password, firstName, lastName, roles }) => {
   const { hash, salt } = genPassword(password);
 
   const newUser = new User({
@@ -18,6 +18,7 @@ const saveUser = async ({ username, password, firstName, lastName }) => {
     salt,
     firstName,
     lastName,
+    roles,
   });
   try {
     return await newUser.save();

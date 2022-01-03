@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext, useEffect } from "react";
 import Router from "next/router";
 import useSWR from "swr";
 import { UserContext } from "../context/UserContext";
@@ -14,27 +14,24 @@ const fetcher = (url) =>
 
 export function useUser({ redirectTo } = {}) {
   const { user: userCtx } = useContext(UserContext);
-
-  if (userCtx) {
-    return userCtx;
-  }
-
-  const { data, error } = useSWR(
-    "http://localhost:3001/api/user/session",
-    fetcher
-  );
+  const { data, error } = useSWR(userCtx ? null : "http://localhost:3001/api/user/session", fetcher);
 
   const user = data?.user;
   const finished = Boolean(data);
   const hasUser = Boolean(user);
 
   useEffect(() => {
-    if (!redirectTo || !finished) return;
+    if (!redirectTo || !finished || userCtx) return;
     // If redirectTo is set, redirect if the user was not found.
     if (redirectTo && !hasUser) {
       Router.push(redirectTo);
     }
-  }, [redirectTo, finished, hasUser]);
+  }, [redirectTo, finished, hasUser, userCtx]);
 
+  if (userCtx) {
+    return userCtx;
+  }
+
+  // TODO: Later, when we fetch the user, we should then store it in the context so we only fetch once per session.
   return error ? null : user;
 }

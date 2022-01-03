@@ -2,7 +2,7 @@ const passport = require('passport');
 const UserService = require('../service/user.service');
 
 const registerUser = async (req, res) => {
-  const { username, password, firstName, lastName } = req.body;
+  const { username, password, firstName, lastName, roles } = req.body;
   try {
     const existingUser = await UserService.getUserByUsername(username);
 
@@ -13,11 +13,22 @@ const registerUser = async (req, res) => {
       });
     }
 
-    const savedUser = await UserService.saveUser({ username, password, firstName, lastName });
+    const savedUser = await UserService.saveUser({
+      username,
+      password,
+      firstName,
+      lastName,
+      roles,
+    });
 
     return res.status(201).json({
       success: true,
-      username: savedUser.username,
+      user: {
+        username: savedUser.username,
+        firstName: savedUser.firstName,
+        lastName: savedUser.lastName,
+        roles: savedUser.roles,
+      },
     });
   } catch (e) {
     res.error();
@@ -38,9 +49,15 @@ const loginUser = (req, res, next) => {
       // if user authenticated maintain the session
       req.logIn(user, (loginErr) => {
         if (loginErr) return next(loginErr);
-        return res.status(201).json({
+        const { username, firstName, lastName, roles } = req.user;
+        return res.status(200).json({
           success: true,
-          username: req.user.username,
+          user: {
+            username,
+            firstName,
+            lastName,
+            roles,
+          },
         });
       });
     }
@@ -61,10 +78,14 @@ const getUser = (req, res) => {
       user: null,
     });
   } else {
+    const { username, firstName, lastName, roles } = req.user;
     res.json({
       success: true,
       user: {
-        username: req.user.username,
+        username,
+        firstName,
+        lastName,
+        roles,
       },
     });
   }

@@ -20,7 +20,7 @@ const LoginForm = () => {
     const { username, password } = formValue;
     authUser(username, password).then((data) => {
       if (data.success === true) {
-        setUser({ username: data.username });
+        setUser(data.user);
         router.push("/");
       } else {
         setIsAuthError(true);

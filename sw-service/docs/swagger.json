@@ -62,8 +62,8 @@
                 "success": {
                   "type": "boolean"
                 },
-                "username": {
-                  "type": "string"
+                "user": {
+                  "type": "object"
                 }
               }
             }
@@ -124,8 +124,8 @@
                 "success": {
                   "type": "boolean"
                 },
-                "username": {
-                  "type": "string"
+                "user": {
+                  "type": "object"
                 }
               }
             }
