@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@radix-ui/react-dialog": "^0.1.5",
+    "@radix-ui/react-icons": "^1.0.3",
+    "@stitches/react": "^1.2.6",
     "axios": "^0.24.0",
     "next": "^12.0.4",
     "react": "^17.0.2",
