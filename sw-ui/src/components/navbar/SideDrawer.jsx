@@ -44,21 +44,23 @@ export const SideDrawer = () => {
   });
   return (
     <Dialog.Root open={openDrawer} onOpenChange={setOpenDrawer}>
-      <Overlay>
-        <Content>
-          <div className="sidedrawer-items">
-            <div className="toolbar__logo">
-              <Link href={"/forms"}>
-                <a>
-                  {" "}
-                  <Image src={logo} width={200} height={150} alt="sweet water logo" />
-                </a>
-              </Link>
+      <Dialog.Portal>
+        <Overlay>
+          <Content>
+            <div className="sidedrawer-items">
+              <div className="toolbar__logo">
+                <Link href={"/"}>
+                  <a>
+                    {" "}
+                    <Image src={logo} width={200} height={150} alt="sweet water logo" />
+                  </a>
+                </Link>
+              </div>
+              <ItemList />
             </div>
-            <ItemList />
-          </div>
-        </Content>
-      </Overlay>
+          </Content>
+        </Overlay>
+      </Dialog.Portal>
     </Dialog.Root>
   );
 };
