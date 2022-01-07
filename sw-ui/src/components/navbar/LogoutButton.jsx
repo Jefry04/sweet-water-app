@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { logout } from "lib/auth";
+import { logout } from "lib/services/auth";
 
 export const LogoutButton = () => {
   const router = useRouter();
