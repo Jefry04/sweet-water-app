@@ -20,9 +20,22 @@ function InputValidator({
 
   useDidMountEffect(() => {
     if (validateOnChange) {
-      handleValidation();
+      handleOnChangeValidation();
     }
   }, [value]);
+
+  const handleOnChangeValidation = () => {
+    const { isValid } = validator(value);
+    if (isValid) {
+      setError(false);
+      setErrorMessage("");
+    }
+    if (cb) {
+      cb({
+        [name]: isValid,
+      });
+    }
+  };
 
   const handleValidation = () => {
     const { isValid, error = "" } = validator(value);
@@ -41,7 +54,7 @@ function InputValidator({
   };
 
   return (
-    <>
+    <div className="input-validator-group">
       <label htmlFor={name} className="main-label">
         {label}
       </label>
@@ -57,7 +70,7 @@ function InputValidator({
         onBlur={handleValidation}
       />
       {error && <span className="input_error-msg">{errorMessage}</span>}
-    </>
+    </div>
   );
 }
 

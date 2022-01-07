@@ -1,0 +1,25 @@
+{
+  "name": "sweet-water-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "scripts": {
+    "dev:service": "cd sw-service && npm run dev",
+    "dev:ui": "cd sw-ui && npm run dev",
+    "dev:all": "concurrently -k -p \"[{name}]\" -n \"SW-Service,SW-UI\" -c \"magenta.bold,green.bold\" \"npm run dev:service\" \"npm run dev:ui\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jefry04/sweet-water-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jefry04/sweet-water-app/issues"
+  },
+  "homepage": "https://github.com/Jefry04/sweet-water-app#readme"
+}
