@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SignupForm from "./SignupForm";
 import { useForm } from "hooks/useForm";
-import { register } from "lib/auth";
+import { register } from "lib/services/auth";
 import { useFormValidation } from "hooks/useFormValidation";
 import { getErrorMessage } from "lib/getErrorMessage";
 

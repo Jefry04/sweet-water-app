@@ -11,6 +11,7 @@ function CreateEmployeeView({
   handleSubmit,
   openInfoModal,
   setOpenInfoModal,
+  error,
 }) {
   const { fullName, nationalId, workRole } = formValue;
 
@@ -46,6 +47,7 @@ function CreateEmployeeView({
           cb={validCb}
           validateOnChange={true}
         />
+        {error.isSubmitError && <span className="employee-form--error">{error.message}</span>}
         <button className="button primary" disabled={!isValid} onClick={handleSubmit}>
           Registrar Usuario
         </button>
