@@ -8,7 +8,7 @@ function Home() {
     <>
       {user && (
         <main style={{ marginTop: "64px" }}>
-          <h2>Datos de usuario:</h2>
+          <h2>Usuario:</h2>
           <p>{"Username: " + user?.username}</p>
           <p>{"First Name: " + user?.firstName}</p>
           <p>{"Roles: "}</p>

@@ -23,7 +23,7 @@ export const Navbar = () => {
           </div>
           <SideDrawer />
           <div className="toolbar__logo">
-            <Link href={"/forms"}>
+            <Link href={"/"}>
               <a>
                 {" "}
                 <Image src={logo} width={80} height={100} alt="sweet water logo" />

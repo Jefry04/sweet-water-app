@@ -5,7 +5,7 @@
   height: 56px;
   width: 100%;
   background-color: $sw-light-blue;
-
+  overflow: hidden;
   .toolbar__navigation {
     display: flex;
     height: 100%;
@@ -26,10 +26,26 @@
 
     li {
       padding: 0 0.5rem;
+      margin: 5px;
     }
     a {
       color: $font-color;
       text-decoration: none;
+    }
+    a:hover {
+      border: 2px solid transparent;
+      color: indigo;
+      transform: scale(1.05);
+      will-change: transform;
+    }
+    .active {
+      background-color: #324B4B;
+      padding: 10px 15px 10px 15px;
+      border-radius: 12px;
+      margin: 5px;
+      a {
+        color: white;
+      }
     }
   }
 }
