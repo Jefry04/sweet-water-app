@@ -2,6 +2,7 @@ import React from "react";
 import { ROLES_DESCRIPTION } from "lib/constants";
 import InputValidator from "components/InputValidator";
 import { notEmptyValidator, passwordValidator, usernameValidator } from "lib/validations";
+import InfoModal from "components/InfoModal";
 
 function SignupForm({
   formValue,
@@ -12,6 +13,8 @@ function SignupForm({
   validCb,
   signupError,
   errorMessage,
+  openInfoModal,
+  setOpenInfoModal,
 }) {
   const { username, firstName, lastName, password, roles } = formValue;
 
@@ -66,6 +69,13 @@ function SignupForm({
             Crear Usuario
           </button>
         </form>
+        <InfoModal
+          open={openInfoModal}
+          onOpenChange={setOpenInfoModal}
+          title="Registro Exitoso"
+          description="Usuario se ha registrado exitosamente"
+          isSuccess={true}
+        />
       </div>
     </div>
   );
