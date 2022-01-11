@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CheckboxInput = ({ questionLabel, optionsLabel }) => {
+export const CheckboxInput = ({ questionLabel }) => {
   return (
     <>
       <div className="checkbox-input">
