@@ -4,7 +4,7 @@ import LoginFormView from "./LoginFormView";
 import { UserContext } from "context/UserContext";
 import { useForm } from "hooks/useForm";
 import { useFormValidation } from "hooks/useFormValidation";
-import { authUser } from "lib/auth";
+import { authUser } from "lib/services/auth";
 import { getErrorMessage } from "lib/getErrorMessage";
 
 const LoginForm = () => {

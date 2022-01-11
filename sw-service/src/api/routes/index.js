@@ -2,10 +2,12 @@
 const { Router } = require('express');
 
 const userRoute = require('./user.route');
+const employeeRoute = require('./employee.route');
 
 const router = Router();
 
 router.use('/user', userRoute);
+router.use('/employee', employeeRoute);
 
 /*
   GET api/status
