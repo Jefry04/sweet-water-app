@@ -1,11 +1,7 @@
 import React from "react";
 
 const Datasheet = () => {
-  return (
-    <main style={{ marginTop: "64px" }}>
-      <h1>Coming soon.....</h1>
-    </main>
-  );
+  return <h1>Coming soon.....</h1>;
 };
 
 export default Datasheet;

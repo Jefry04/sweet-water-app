@@ -1,5 +1,6 @@
 import React from "react";
 import { useUser } from "../hooks/useUser";
+import Logo from "public/Logo";
 
 function Home() {
   const user = useUser({ redirectTo: "/login" });
@@ -7,7 +8,8 @@ function Home() {
   return (
     <>
       {user && (
-        <main style={{ marginTop: "64px" }}>
+        <div className="mainPage">
+          <Logo />
           <h2>Usuario:</h2>
           <p>{"Username: " + user?.username}</p>
           <p>{"First Name: " + user?.firstName}</p>
@@ -15,7 +17,7 @@ function Home() {
           {user?.roles.map((rol) => (
             <li key={rol}>{rol}</li>
           ))}
-        </main>
+        </div>
       )}
     </>
   );

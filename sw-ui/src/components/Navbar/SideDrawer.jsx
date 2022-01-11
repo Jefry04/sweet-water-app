@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import { keyframes, styled } from "@stitches/react";
-import logo from "../../public/logo.png";
 import { ItemList } from "./ItemList";
+import Logo from "public/Logo";
 import { UserContext } from "context/UserContext";
 
 export const SideDrawer = () => {
@@ -51,8 +50,7 @@ export const SideDrawer = () => {
               <div className="toolbar__logo">
                 <Link href={"/"}>
                   <a>
-                    {" "}
-                    <Image src={logo} width={200} height={150} alt="sweet water logo" />
+                    <Logo width="180" height="50" />
                   </a>
                 </Link>
               </div>

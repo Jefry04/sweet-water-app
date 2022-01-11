@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import logo from "../../public/logo.png";
 import { SideDrawer } from "./SideDrawer";
 import { ItemList } from "./ItemList";
 import { UserContext } from "context/UserContext";
+import Logo from "public/Logo";
 
-export const Navbar = () => {
+export default function Navbar() {
   const { setOpenDrawer } = useContext(UserContext);
 
   const handleClick = () => {
@@ -19,14 +18,13 @@ export const Navbar = () => {
       <header className="toolbar">
         <nav className="toolbar__navigation">
           <div className="toolbar__toggle-button" onClick={handleClick}>
-            <HamburgerMenuIcon />
+            <HamburgerMenuIcon width="28" height="28" color="#545454" />
           </div>
           <SideDrawer />
           <div className="toolbar__logo">
             <Link href={"/"}>
               <a>
-                {" "}
-                <Image src={logo} width={80} height={100} alt="sweet water logo" />
+                <Logo color="#fff" width="117" height="28" />
               </a>
             </Link>
           </div>
@@ -38,4 +36,4 @@ export const Navbar = () => {
       </header>
     </>
   );
-};
+}

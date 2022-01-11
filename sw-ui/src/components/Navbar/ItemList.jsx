@@ -7,15 +7,19 @@ import { UserContext } from "context/UserContext";
 const listItem = [
   {
     href: "/forms",
-    label: "formularios",
+    label: "Formularios",
   },
   {
     href: "/admin/signup",
-    label: "Crear usuario",
+    label: "Crear Usuario",
   },
   {
     href: "/datasheet",
     label: "Datasheet",
+  },
+  {
+    href: "/admin/employees/create",
+    label: "Registrar Empleado",
   },
 ];
 

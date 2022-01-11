@@ -1,15 +1,15 @@
 import React from "react";
-import { FormFactory } from "components/formFactory/FormFactory";
+import { Index } from "components/FormFactory";
 
 const mockDataForm = {
   formId: 1,
   formTitle:
-    "FORMATO Y REGISTRO DE LIMPIEZA Y DESINFECCION DE BANDA TRANSPORTADORA MAQUINA  DE FABRICACION BOLSA X 6 LITROS",
-  formSubtitle: "actividades a realizar",
+    "Formato y registro de limpieza y desinfeccion de banda transportadora maquina de fabriación bolsa X 6 litros",
+  formSubtitle: "Actividades a realizar",
   questions: [
     {
       id: 1,
-      questionLabel: "lave la banda con solucion detergente y cepillo",
+      questionLabel: "Lave la banda con solucion detergente y cepillo",
       optionsLabel: "Realizó:",
       type: "boolean",
     },
@@ -21,14 +21,14 @@ const mockDataForm = {
     },
     {
       id: 3,
-      questionLabel: "seque la superficie de la banda con toalla desechable",
+      questionLabel: "Seque la superficie de la banda con toalla desechable",
       optionsLabel: "Realizó:",
       type: "boolean",
     },
     {
       id: 4,
       questionLabel:
-        "desinfecte las superficies asperjando solucion de amonio cuaternario de 200 ppm o solucion de cloroz al 10% V/V",
+        "Desinfecte las superficies asperjando solucion de amonio cuaternario de 200 ppm o solucion de cloroz al 10% V/V",
       optionsLabel: "Realizó:",
       type: "boolean",
     },
@@ -42,7 +42,7 @@ const mockDataForm = {
 };
 
 const forms = () => {
-  return <FormFactory data={mockDataForm} />;
+  return <Index data={mockDataForm} />;
 };
 
 export default forms;

@@ -1,10 +1,10 @@
 import React from "react";
 import { inputFactory } from "lib/inputType";
 
-export const FormFactory = ({ data }) => {
+export const Index = ({ data }) => {
   const handleFormSubmit = () => console.log("envie el formulario");
   return (
-    <>
+    <div className="container">
       <div className="form-container">
         <h3>Formato #{data.formId}</h3>
         <br />
@@ -20,6 +20,6 @@ export const FormFactory = ({ data }) => {
           Enviar formulario
         </button>
       </div>
-    </>
+    </div>
   );
 };

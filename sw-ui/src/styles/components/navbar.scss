@@ -1,11 +1,9 @@
 .toolbar {
-  position: fixed;
-  top: 0%;
+  top: 0;
   left: 0;
   height: 56px;
   width: 100%;
   background-color: $sw-light-blue;
-  overflow: hidden;
   .toolbar__navigation {
     display: flex;
     height: 100%;
@@ -52,13 +50,11 @@
 
 .toolbar__logo {
   margin-left: auto;
+  display: flex;
+  flex-direction: row;
 
-  a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.5 rem;
-    margin-left: auto;
-  }
+  align-items: center;
+  justify-content: center;
 }
 
 @include tabletAndDesktop() {

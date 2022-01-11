@@ -1,0 +1,12 @@
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  height: 20vh;
+
+  svg {
+    margin-bottom: 24px;
+  }
+}
