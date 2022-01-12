@@ -8,6 +8,7 @@ import { getErrorMessage } from "lib/getErrorMessage";
 function Signup() {
   const [isSignupError, setIsSignupError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [openInfoModal, setOpenInfoModal] = useState(false);
   const [formValue, handleInputChange, setFormValue, resetFormValue] = useForm({
     username: "",
     firstName: "",
@@ -59,6 +60,7 @@ function Signup() {
           setIsSignupError(false);
           resetFormValidation();
           resetFormValue();
+          setOpenInfoModal(true);
         } else {
           setIsSignupError(true);
           setErrorMessage(getErrorMessage(res.errMsg));
@@ -76,6 +78,8 @@ function Signup() {
     isValid,
     signupError: isSignupError,
     validCb: setValidObj,
+    setOpenInfoModal,
+    openInfoModal,
   };
 
   return <SignupForm {...viewProps} />;
