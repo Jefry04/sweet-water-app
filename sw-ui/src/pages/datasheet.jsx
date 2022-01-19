@@ -1,7 +1,11 @@
 import React from "react";
 
 const Datasheet = () => {
-  return <h1>Coming soon.....</h1>;
+  return (
+    <div className="container">
+      <h1>Coming soon.....</h1>
+    </div>
+  );
 };
 
 export default Datasheet;

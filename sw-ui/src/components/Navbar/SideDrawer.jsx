@@ -50,11 +50,12 @@ export const SideDrawer = () => {
               <div className="toolbar__logo">
                 <Link href={"/"}>
                   <a>
-                    <Logo width="180" height="50" />
+                    <Logo width="180" height="50" color="#64d0d0" />
                   </a>
                 </Link>
               </div>
-              <ItemList />
+              <div className="separator" />
+              <ItemList isDrawer={true} />
             </div>
           </Content>
         </Overlay>

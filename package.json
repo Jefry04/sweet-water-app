@@ -5,12 +5,16 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "pre-commit": "^1.2.2"
   },
   "scripts": {
     "dev:service": "cd sw-service && npm run dev",
     "dev:ui": "cd sw-ui && npm run dev",
-    "dev:all": "concurrently -k -p \"[{name}]\" -n \"SW-Service,SW-UI\" -c \"magenta.bold,green.bold\" \"npm run dev:service\" \"npm run dev:ui\" "
+    "dev:all": "concurrently -k -p \"[{name}]\" -n \"SW-Service,SW-UI\" -c \"magenta.bold,green.bold\" \"npm run dev:service\" \"npm run dev:ui\" ",
+    "lint:service": "cd sw-service && npm run lint",
+    "lint:ui": "cd sw-ui && npm run lint",
+    "lint": "npm run lint:ui && npm run lint:service"
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Jefry04/sweet-water-app/issues"
   },
-  "homepage": "https://github.com/Jefry04/sweet-water-app#readme"
+  "homepage": "https://github.com/Jefry04/sweet-water-app#readme",
+  "pre-commit": [
+    "lint"
+  ]
 }
