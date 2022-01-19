@@ -1,5 +1,5 @@
-import { CheckboxInput } from "components/formFactory/CheckboxInput";
-import { TextInput } from "components/formFactory/TextInput";
+import { CheckboxInput } from "components/FormFactory/CheckboxInput";
+import { TextInput } from "components/FormFactory/TextInput";
 
 export const inputType = {
   CHECKBOX: "boolean",

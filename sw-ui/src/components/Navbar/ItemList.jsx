@@ -2,35 +2,18 @@ import React, { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { LogoutButton } from "./LogoutButton";
+import { routeList } from "./routeList";
 import { UserContext } from "context/UserContext";
 
-const listItem = [
-  {
-    href: "/forms",
-    label: "Formularios",
-  },
-  {
-    href: "/admin/signup",
-    label: "Crear Usuario",
-  },
-  {
-    href: "/datasheet",
-    label: "Datasheet",
-  },
-  {
-    href: "/admin/employees/create",
-    label: "Registrar Empleado",
-  },
-];
-
-export const ItemList = () => {
+export const ItemList = ({ isDrawer }) => {
   const { setOpenDrawer } = useContext(UserContext);
   const router = useRouter();
 
   const handleClick = () => setOpenDrawer(false);
-  return (
+
+  const NavBarItemList = (
     <ul>
-      {listItem.map((item, idx) => (
+      {routeList.map((item, idx) => (
         <li key={idx} onClick={handleClick} className={router.pathname === item.href ? "active" : ""}>
           <Link href={item.href}>
             <a>{item.label}</a>
@@ -40,4 +23,30 @@ export const ItemList = () => {
       <LogoutButton />
     </ul>
   );
+
+  const SideDrawerItemList = (
+    <>
+      <ul>
+        {routeList.map((item, idx) => {
+          const Icon = item.icon;
+          return (
+            <li key={idx} onClick={handleClick} className={router.pathname === item.href ? "active" : ""}>
+              <Link href={item.href} passHref>
+                <div className="sidedrawer__link">
+                  <Icon />
+                  <a>{item.label}</a>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="sidedrawer__bottom">
+        <div className="separator" />
+        <LogoutButton isDrawer={true} />
+      </div>
+    </>
+  );
+
+  return isDrawer ? SideDrawerItemList : NavBarItemList;
 };

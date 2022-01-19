@@ -50,7 +50,7 @@ button:disabled {
   }
 }
 
-.logout-button {
+button.logout-button {
   padding: 8px 20px;
   border-radius: 4px;
   outline: none;
@@ -61,7 +61,7 @@ button:disabled {
   background-color: $primary-color;
 }
 
-.logout-button:hover {
+button.logout-button:hover {
   padding: 6px 18px;
   transition: all 0.3s ease-out;
   background-color: transparent;
