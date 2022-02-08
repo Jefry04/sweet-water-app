@@ -14,7 +14,8 @@
     "dev:all": "concurrently -k -p \"[{name}]\" -n \"SW-Service,SW-UI\" -c \"magenta.bold,green.bold\" \"npm run dev:service\" \"npm run dev:ui\" ",
     "lint:service": "cd sw-service && npm run lint",
     "lint:ui": "cd sw-ui && npm run lint",
-    "lint": "npm run lint:ui && npm run lint:service"
+    "lint": "npm run lint:ui && npm run lint:service",
+    "install:all": "npm i && cd sw-service && npm i && cd ../sw-ui && npm i"
   },
   "repository": {
     "type": "git",

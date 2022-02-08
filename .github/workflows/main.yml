@@ -1,0 +1,15 @@
+name: Main
+
+on: [push]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install all modules
+        run: npm run install:all
+      - name: Lint and Prettier
+        run: npm run lint
+      - name: Build Front End
+        run: cd sw-ui && npm run build

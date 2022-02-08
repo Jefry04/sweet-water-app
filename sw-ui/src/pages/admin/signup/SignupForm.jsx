@@ -5,7 +5,7 @@ import { notEmptyValidator, passwordValidator, usernameValidator } from "lib/val
 import InfoModal from "components/InfoModal";
 
 function SignupForm({
-  formValue,
+  formValue = {},
   handleInputChange,
   handleFormSubmit,
   handleCheckboxRoles,
@@ -85,7 +85,7 @@ const CheckboxRoles = ({ handleCheckboxRoles, roles }) => {
   return (
     <div id="rol" className="signup-form__roles-container">
       {Object.entries(ROLES_DESCRIPTION).map(([key, value]) => {
-        const isChecked = roles.includes(key);
+        const isChecked = roles?.includes(key);
         return (
           <span key={key} className={"signup-form__role"}>
             <input type="checkbox" id={key} value={key} name={key} onChange={handleCheckboxRoles} checked={isChecked} />
