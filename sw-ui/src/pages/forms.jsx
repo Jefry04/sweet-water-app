@@ -1,5 +1,5 @@
 import React from "react";
-import { Index } from "components/FormFactory";
+import FormFactory from "components/FormFactory";
 
 const mockDataForm = {
   formId: 1,
@@ -41,8 +41,8 @@ const mockDataForm = {
   ],
 };
 
-const forms = () => {
-  return <Index data={mockDataForm} />;
+const Forms = () => {
+  return <FormFactory data={mockDataForm} />;
 };
 
-export default forms;
+export default Forms;
