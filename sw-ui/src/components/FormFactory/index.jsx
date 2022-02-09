@@ -1,7 +1,7 @@
 import React from "react";
 import { inputFactory } from "lib/inputType";
 
-export const Index = ({ data }) => {
+const FormFactory = ({ data }) => {
   const handleFormSubmit = () => console.log("envie el formulario");
   return (
     <div className="container">
@@ -23,3 +23,5 @@ export const Index = ({ data }) => {
     </div>
   );
 };
+
+export default FormFactory;

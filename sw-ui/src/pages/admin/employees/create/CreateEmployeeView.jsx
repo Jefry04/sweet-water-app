@@ -4,7 +4,7 @@ import { notEmptyValidator } from "lib/validations";
 import InfoModal from "components/InfoModal";
 
 function CreateEmployeeView({
-  formValue,
+  formValue = {},
   handleInputChange,
   validCb,
   isValid,
@@ -47,7 +47,7 @@ function CreateEmployeeView({
           cb={validCb}
           validateOnChange={true}
         />
-        {error.isSubmitError && <span className="employee-form--error">{error.message}</span>}
+        {error?.isSubmitError && <span className="employee-form--error">{error.message}</span>}
         <button className="button primary" disabled={!isValid} onClick={handleSubmit}>
           Registrar Usuario
         </button>

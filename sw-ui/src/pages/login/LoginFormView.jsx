@@ -4,7 +4,7 @@ import logo from "../../public/logo.png";
 import InputValidator from "../../components/InputValidator";
 import { notEmptyValidator } from "../../lib/validations";
 
-const LoginFormView = ({ handleChange, handleSubmit, isValid, isAuthError, formValue, errorMessage, cbValid }) => {
+const LoginFormView = ({ handleChange, handleSubmit, isValid, isAuthError, formValue = {}, errorMessage, cbValid }) => {
   return (
     <div className="login-container">
       <h1 className="login-form__title"> Sweet Water</h1>
