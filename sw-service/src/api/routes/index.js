@@ -3,11 +3,13 @@ const { Router } = require('express');
 
 const userRoute = require('./user.route');
 const employeeRoute = require('./employee.route');
+const formRoute = require('./form.route');
 
 const router = Router();
 
 router.use('/user', userRoute);
 router.use('/employee', employeeRoute);
+router.use('/forms', formRoute);
 
 /*
   GET api/status
