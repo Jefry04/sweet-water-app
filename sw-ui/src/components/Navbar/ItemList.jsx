@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import * as Collapsible from "@radix-ui/react-collapsible";
 import { LogoutButton } from "./LogoutButton";
-import { routeList } from "./routeList";
+import { routeList, adminList } from "./routeList";
+import { DropdownList } from "./DropdownList";
 import { UserContext } from "context/UserContext";
 
 export const ItemList = ({ isDrawer }) => {
@@ -20,6 +22,7 @@ export const ItemList = ({ isDrawer }) => {
           </Link>
         </li>
       ))}
+      <DropdownList />
       <LogoutButton />
     </ul>
   );
@@ -40,6 +43,7 @@ export const ItemList = ({ isDrawer }) => {
             </li>
           );
         })}
+        <DropdownList isDrawer={true} />
       </ul>
       <div className="sidedrawer__bottom">
         <div className="separator" />
