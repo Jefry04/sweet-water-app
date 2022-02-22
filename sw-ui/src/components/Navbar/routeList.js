@@ -12,6 +12,14 @@ export const routeList = [
     icon: ArchiveIcon,
   },
   {
+    href: "/datasheet",
+    label: "Fichas Técnicas",
+    icon: FileTextIcon,
+  },
+];
+
+export const adminList = [
+  {
     href: "/admin/signup",
     label: "Crear Usuario",
     icon: AvatarIcon,
@@ -20,10 +28,5 @@ export const routeList = [
     href: "/admin/employees/create",
     label: "Crear Empleado",
     icon: PersonIcon,
-  },
-  {
-    href: "/datasheet",
-    label: "Fichas Técnicas",
-    icon: FileTextIcon,
   },
 ];
