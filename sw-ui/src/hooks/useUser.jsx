@@ -13,7 +13,7 @@ const fetcher = (url) =>
     });
 
 export function useUser({ redirectTo } = {}) {
-  const { user: userCtx } = useContext(UserContext);
+  const { user: userCtx, setUser: setUserCtx } = useContext(UserContext);
   const { data, error } = useSWR(userCtx ? null : "http://localhost:3001/api/user/session", fetcher);
 
   const user = data?.user;
@@ -26,7 +26,10 @@ export function useUser({ redirectTo } = {}) {
     if (redirectTo && !hasUser) {
       Router.push(redirectTo);
     }
-  }, [redirectTo, finished, hasUser, userCtx]);
+    if (hasUser && !userCtx) {
+      setUserCtx(user);
+    }
+  }, [redirectTo, finished, hasUser, userCtx, setUserCtx, user]);
 
   if (userCtx) {
     return userCtx;
