@@ -6,104 +6,246 @@
 	},
 	"item": [
 		{
-			"name": "Register [/user]",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\":\"jefry\",\n    \"password\":\"Test1234\",\n    \"firstName\": \"Jefferson\",\n    \"lastName\": \"Vasquez\",\n    \"roles\": [\"ADMIN\"]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register [/user]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"jefry\",\n    \"password\":\"Test1234\",\n    \"firstName\": \"Jefferson\",\n    \"lastName\": \"Vasquez\",\n    \"roles\": [\"ADMIN\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/api/user",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"user"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Logout [/user/session]",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/api/user/session",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"user",
-						"session"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login [/user/session]",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"jefry\",\n    \"password\": \"Test1234\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Logout [/user/session]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/user/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"session"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/api/user/session",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"user",
-						"session"
-					]
+				{
+					"name": "Login [/user/session]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"jefry\",\n    \"password\": \"Test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Status & Session [/status]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "API Status & Session [/status]",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/api/status",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"status"
-					]
+			"name": "Employee",
+			"item": [
+				{
+					"name": "SaveEmployee [/employee]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"fullName\": \"Estefania Arias\",\n      \"nationalId\": 1039463268,\n      \"workRole\": \"IT Contractor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"employee"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Forms",
+			"item": [
+				{
+					"name": "Get All Forms [/forms]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/forms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"forms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Form [/forms]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Limpieza y Desinfeccion de banda\",\n  \"content\": {\n   \"formTitle\":\"Formato y registro de limpieza y desinfeccion de banda transportadora maquina de fabriación bolsa X 6 litros\",\n   \"formSubtitle\":\"Actividades a realizar\",\n   \"questions\":[\n        {\n           \"id\":1,\n           \"questionLabel\":\"Lave la banda con solucion detergente y cepillo\",\n           \"optionsLabel\":\"Realizó:\",\n           \"type\":\"boolean\"\n        },\n        {\n           \"id\":2,\n           \"questionLabel\":\"Enjuague la superficie de la banda con toalla desechable\",\n           \"optionsLabel\":\"Cumple:\",\n           \"type\":\"boolean\"\n        },\n        {\n           \"id\":3,\n           \"questionLabel\":\"Seque la superficie de la banda con toalla desechable\",\n           \"optionsLabel\":\"Realizó:\",\n           \"type\":\"boolean\"\n        },\n        {\n           \"id\":4,\n           \"questionLabel\":\"Desinfecte las superficies asperjando solucion de amonio cuaternario de 200 ppm o solucion de cloroz al 10% V/V\",\n           \"optionsLabel\":\"Realizó:\",\n           \"type\":\"boolean\"\n        },\n        {\n           \"id\":5,\n           \"questionLabel\":\"Observaciones\",\n           \"optionsLabel\":\"Realizó:\",\n           \"type\":\"text\"\n        }\n    ]\n  },\n  \"allowedRoles\": [\"SANEAMIENTO\", \"CALIDAD\", \"ADMIN\", \"PROCESOS\"],\n  \"frequency\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/forms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"forms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Form By Id [/forms/id]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/forms/id/622769b7b8a162ec5dd4719d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"forms",
+								"id",
+								"622769b7b8a162ec5dd4719d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Form By Roles [/forms/roles]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/forms/roles?q=SANEAMIENTO,ADMIN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"forms",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "SANEAMIENTO,ADMIN"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
