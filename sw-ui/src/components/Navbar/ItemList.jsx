@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import * as Collapsible from "@radix-ui/react-collapsible";
 import { LogoutButton } from "./LogoutButton";
-import { routeList, adminList } from "./routeList";
+import { routeList } from "./routeList";
 import { DropdownList } from "./DropdownList";
-import { UserContext } from "context/UserContext";
+import { useUser } from "hooks/useUser";
+import { AppContext } from "context/AppContext";
 
 export const ItemList = ({ isDrawer }) => {
-  const { setOpenDrawer } = useContext(UserContext);
+  const { setOpenDrawer } = useContext(AppContext);
   const router = useRouter();
+  const user = useUser();
 
   const handleClick = () => setOpenDrawer(false);
 
@@ -22,7 +23,7 @@ export const ItemList = ({ isDrawer }) => {
           </Link>
         </li>
       ))}
-      <DropdownList />
+      {user?.isAdmin && <DropdownList />}
       <LogoutButton />
     </ul>
   );
@@ -43,7 +44,7 @@ export const ItemList = ({ isDrawer }) => {
             </li>
           );
         })}
-        <DropdownList isDrawer={true} />
+        {user?.isAdmin && <DropdownList isDrawer={true} />}
       </ul>
       <div className="sidedrawer__bottom">
         <div className="separator" />

@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import Router from "next/router";
 import useSWR from "swr";
 import { UserContext } from "../context/UserContext";
+import { ROLES } from "lib/constants";
 
 const fetcher = (url) =>
   fetch(url, {
@@ -27,6 +28,7 @@ export function useUser({ redirectTo } = {}) {
       Router.push(redirectTo);
     }
     if (hasUser && !userCtx) {
+      user.isAdmin = user.roles.includes(ROLES.ADMIN);
       setUserCtx(user);
     }
   }, [redirectTo, finished, hasUser, userCtx, setUserCtx, user]);
