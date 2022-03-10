@@ -1,5 +1,7 @@
 import React from "react";
 import FormFactory from "components/FormFactory";
+import { useUser } from "hooks/useUser";
+import withAuth from "lib/HOC/withAuth";
 
 const mockDataForm = {
   formId: 1,
@@ -45,4 +47,4 @@ const Forms = () => {
   return <FormFactory data={mockDataForm} />;
 };
 
-export default Forms;
+export default withAuth(Forms);

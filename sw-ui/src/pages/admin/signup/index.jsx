@@ -4,8 +4,10 @@ import { useForm } from "hooks/useForm";
 import { register } from "lib/services/auth";
 import { useFormValidation } from "hooks/useFormValidation";
 import { getErrorMessage } from "lib/getErrorMessage";
+import withAuth from "lib/HOC/withAuth";
+import { NoAccessView } from "components/NoAccessView";
 
-function Signup() {
+function Signup({ user }) {
   const [isSignupError, setIsSignupError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [openInfoModal, setOpenInfoModal] = useState(false);
@@ -82,7 +84,7 @@ function Signup() {
     openInfoModal,
   };
 
-  return <SignupForm {...viewProps} />;
+  return <>{user.isAdmin ? <SignupForm {...viewProps} /> : <NoAccessView />};</>;
 }
 
-export default Signup;
+export default withAuth(Signup);

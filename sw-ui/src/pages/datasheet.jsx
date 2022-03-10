@@ -1,4 +1,5 @@
 import React from "react";
+import withAuth from "lib/HOC/withAuth";
 
 const Datasheet = () => {
   return (
@@ -8,4 +9,4 @@ const Datasheet = () => {
   );
 };
 
-export default Datasheet;
+export default withAuth(Datasheet);
