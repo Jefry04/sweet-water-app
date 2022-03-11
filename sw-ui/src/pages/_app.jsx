@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { UserProvider } from "../context/UserContext";
 import Layout from "components/Layout";
 import "../styles/style.scss";
+import { AppProvider } from "context/AppContext";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -9,13 +10,15 @@ function MyApp({ Component, pageProps }) {
   const showNavbar = router.pathname !== "/login";
   return (
     <UserProvider>
-      {showNavbar ? (
-        <Layout>
+      <AppProvider>
+        {showNavbar ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : (
           <Component {...pageProps} />
-        </Layout>
-      ) : (
-        <Component {...pageProps} />
-      )}
+        )}
+      </AppProvider>
     </UserProvider>
   );
 }
