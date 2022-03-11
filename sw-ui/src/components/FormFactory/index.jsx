@@ -3,16 +3,17 @@ import { inputFactory } from "lib/inputType";
 
 const FormFactory = ({ data }) => {
   const handleFormSubmit = () => console.log("envie el formulario");
+
   return (
     <div className="container">
       <div className="form-container">
-        <h3>Formato #{data.formId}</h3>
+        <h2>{data?.name}</h2>
         <br />
-        <p>{data.formTitle}</p>
+        <p>{data?.content?.formTitle}</p>
         <br />
-        <h4>{data.formSubtitle}</h4>
+        <h4>{data?.content.formSubtitle}</h4>
         <br />
-        {data.questions.map((question, idx) => {
+        {data?.content?.questions?.map((question, idx) => {
           const InputForm = inputFactory[question.type];
           return <InputForm {...question} key={idx} />;
         })}
