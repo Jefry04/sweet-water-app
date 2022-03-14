@@ -6,6 +6,7 @@ import { useForm } from "hooks/useForm";
 import { useFormValidation } from "hooks/useFormValidation";
 import { authUser } from "lib/services/auth";
 import { getErrorMessage } from "lib/getErrorMessage";
+import { ROLES } from "lib/constants";
 
 const LoginForm = () => {
   const [isAuthError, setIsAuthError] = useState(false);
@@ -20,7 +21,7 @@ const LoginForm = () => {
     const { username, password } = formValue;
     authUser(username, password).then((data) => {
       if (data.success === true) {
-        setUser(data.user);
+        setUser({ ...data.user, isAdmin: data.user.roles.includes(ROLES.ADMIN) });
         router.push("/");
       } else {
         setIsAuthError(true);

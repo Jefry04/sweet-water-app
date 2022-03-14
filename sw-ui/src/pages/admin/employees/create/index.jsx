@@ -4,8 +4,10 @@ import { useForm } from "hooks/useForm";
 import { useFormValidation } from "hooks/useFormValidation";
 import { saveEmployee } from "lib/services/employee";
 import { getErrorMessage } from "lib/getErrorMessage";
+import withAuth from "lib/HOC/withAuth";
+import { NoAccessView } from "components/NoAccessView";
 
-function CreateEmployee() {
+function CreateEmployee({ user }) {
   const [formValue, handleInputChange, , resetFormValue] = useForm({
     fullName: "",
     nationalId: "",
@@ -55,7 +57,7 @@ function CreateEmployee() {
     error,
   };
 
-  return <CreateEmployeeView {...viewProps} />;
+  return <>{user.isAdmin ? <CreateEmployeeView {...viewProps} /> : <NoAccessView />}</>;
 }
 
-export default CreateEmployee;
+export default withAuth(CreateEmployee);

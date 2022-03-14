@@ -3,11 +3,11 @@ import Link from "next/link";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { SideDrawer } from "./SideDrawer";
 import { ItemList } from "./ItemList";
-import { UserContext } from "context/UserContext";
 import Logo from "public/Logo";
+import { AppContext } from "context/AppContext";
 
 export default function Navbar() {
-  const { setOpenDrawer } = useContext(UserContext);
+  const { setOpenDrawer } = useContext(AppContext);
 
   const handleClick = () => {
     setOpenDrawer(true);

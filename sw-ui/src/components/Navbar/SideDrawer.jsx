@@ -4,10 +4,10 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { keyframes, styled } from "@stitches/react";
 import { ItemList } from "./ItemList";
 import Logo from "public/Logo";
-import { UserContext } from "context/UserContext";
+import { AppContext } from "context/AppContext";
 
 export const SideDrawer = () => {
-  const { openDrawer, setOpenDrawer } = useContext(UserContext);
+  const { openDrawer, setOpenDrawer } = useContext(AppContext);
   const showOverlay = keyframes({
     "0%": { opacity: 0 },
     "100%": { opacity: 1 },
