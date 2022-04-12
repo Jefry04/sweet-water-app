@@ -9,6 +9,7 @@ const ROLES = {
 const SERVICE_ERRORS = {
   MISSING_ID: 'MISSING_ID',
   RESOURCE_NOT_FOUND: 'RESOURCE_NOT_FOUND',
+  BAD_REQUEST: 'BAD_REQUEST',
 };
 
 module.exports = {

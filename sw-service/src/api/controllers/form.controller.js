@@ -115,7 +115,10 @@ const createForm = async (req, res) => {
       },
     });
   } catch (e) {
-    res.error();
+    res.status(500).json({
+      success: false,
+      error: e.toString(),
+    });
   }
 };
 

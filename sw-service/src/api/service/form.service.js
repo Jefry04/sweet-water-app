@@ -12,7 +12,7 @@ const getFormById = async (id) => {
   try {
     return await Form.findOne({ _id: id });
   } catch (e) {
-    throw Error('Error while trying to get Form by ID');
+    throw Error(`Error while trying to get Form by ID: ${e.toString()}`);
   }
 };
 

@@ -1,7 +1,10 @@
 const { Router } = require('express');
 const FormController = require('../controllers/form.controller');
+const FormResponseRoute = require('./formResponse.route');
 
 const router = Router();
+
+// =========== Form Route ===============
 
 /*
     Get All Forms
@@ -26,5 +29,9 @@ router.get('/roles', FormController.getFormByRole);
     GET api/forms/:id
 */
 router.get('/id/:id', FormController.getFormById);
+
+// =========== Form Response Route ===============
+
+router.use('/response', FormResponseRoute);
 
 module.exports = router;
