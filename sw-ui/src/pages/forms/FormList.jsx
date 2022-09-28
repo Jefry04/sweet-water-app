@@ -6,6 +6,7 @@ import { useFormData } from "hooks/useFormData";
 const FormsList = ({ user }) => {
   const formList = useFormData(`/roles?q=${user.roles}`);
 
+  if (formList === null) return <div>failed to load</div>;
   return (
     <div>
       <h1>FORMULARIOS:</h1>
