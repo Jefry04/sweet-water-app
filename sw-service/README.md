@@ -18,7 +18,7 @@ nvm use
 
 Install all dependencies:
 ```
-npm run install
+npm install
 ```
 
 Bootstrap the database using docker in the sw-service/ folder:
