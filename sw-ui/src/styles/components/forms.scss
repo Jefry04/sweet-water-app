@@ -2,6 +2,10 @@
   color: $primary-color;
   height: 100%;
   padding: 24px;
+
+  h2, h4, p{
+    margin-bottom: 10px;
+  }
   @include tablet() {
     padding: 36px;
   }
