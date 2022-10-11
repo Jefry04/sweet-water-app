@@ -29,4 +29,9 @@ export const adminList = [
     label: "Crear Empleado",
     icon: PersonIcon,
   },
+  {
+    href: "/admin/newform",
+    label: "Crear Formulario",
+    icon: PersonIcon,
+  },
 ];

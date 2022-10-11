@@ -3,22 +3,23 @@
   border: none;
   color: $primary-color;
   background-color: $sw-light-blue;
+  font-size: 16px;
+  font-family: $primary-font;
 }
 
 .dropdown_content {
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-  }
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
 
-  .dropdown_items{
-   padding: 5px 10px;
-  }
+.dropdown_items {
+  padding: 5px 10px;
+}
 
-
-  .dropdown_items:focus{
-    background-color: $sw-light-blue;
-   }
+.dropdown_items:focus {
+  background-color: $sw-light-blue;
+}
 
 a:-webkit-any-link {
   color: black;
